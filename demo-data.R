@@ -40,10 +40,13 @@ dt_demo <- dt_educ[dt_race, on = 'blockgrp'] %>%
            Population = NULL,
            sqmi = NULL)]
 
+
+fwrite(dt_demo, 'demo.csv')
+
 # long version of data
 dt_demo2 <- dt_demo %>%
   melt(id.var = 'precinct',
        variable.name = 'measure',
        variable.factor = FALSE)
 
-fwrite(dt_demo2, 'data/demo.csv')
+fwrite(dt_demo2, 'demo-long.csv')
